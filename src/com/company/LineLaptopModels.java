@@ -2,33 +2,33 @@ package com.company;
 
 import java.util.*;
 
-public class lineLaptopModels {
+public class LineLaptopModels {
 
     private int price;
     private int ram;
     private int hardDrive;
     private int diagonalScreen;
 
-    private static TreeSet<lineLaptopModels> modelsSet = new TreeSet<>(new Comparator<lineLaptopModels>() {
+    private static TreeSet<LineLaptopModels> modelsSet = new TreeSet<>(new Comparator<LineLaptopModels>() {
         @Override
-        public int compare(lineLaptopModels o1, lineLaptopModels o2) {
+        public int compare(LineLaptopModels o1, LineLaptopModels o2) {
             return (o1.ram - o2.ram) - (o1.price - o2.price) -
                     (o1.hardDrive - o2.hardDrive) - (o1.diagonalScreen - o2.diagonalScreen);
         }
     });
 
-    private lineLaptopModels(int price, int ram, int hardDrive, int diagonalScreen) {
+    private LineLaptopModels(int price, int ram, int hardDrive, int diagonalScreen) {
         this.price = price;
         this.ram = ram;
         this.hardDrive = hardDrive;
         this.diagonalScreen = diagonalScreen;
     }
 
-    public lineLaptopModels() {
+    public LineLaptopModels() {
     }
 
-    public void addModelNotebook(int price, int ram, int hardDrive, int diagonalScreen) {
-        lineLaptopModels newModel = new lineLaptopModels(price,ram, hardDrive, diagonalScreen);
+    public void addModelLaptop(int price, int ram, int hardDrive, int diagonalScreen) {
+        LineLaptopModels newModel = new LineLaptopModels(price,ram, hardDrive, diagonalScreen);
         modelsSet.add(newModel);
     }
 
@@ -44,7 +44,7 @@ public class lineLaptopModels {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        lineLaptopModels that = (lineLaptopModels) o;
+        LineLaptopModels that = (LineLaptopModels) o;
         return price == that.price &&
                 ram == that.ram &&
                 hardDrive == that.hardDrive &&
@@ -62,7 +62,7 @@ public class lineLaptopModels {
         System.out.println("Укажите максимальный характеристики:");
         HashMap<Integer, Integer> maxMod = getSpecifications();
 
-        List<lineLaptopModels> resultList = new ArrayList<>();
+        List<LineLaptopModels> resultList = new ArrayList<>();
         for (var model : modelsSet) {
             if ((model.price >= minMod.get(1) && model.price <= maxMod.get(1)) &&
                     (model.ram >= minMod.get(2) && model.ram <= maxMod.get(2)) &&
